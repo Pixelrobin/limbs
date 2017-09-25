@@ -28,6 +28,7 @@
 - Spacing
 - Utilities
 - Clearing
+- Show/Hide
 - Media Queries
 */
 
@@ -387,6 +388,37 @@ hr {
 	clear: both;
 }
 
+
+/* Hide/Show
+-------------------------------------------------- */
+
+/* Sizes
+mobile-s: 320px
+mobile-m: 375px
+mobile-l: 425px
+tablet: 768px
+desktop: 1024px
+desktop-hd: 1440px
+desktop-uhd: 2560px
+*/
+
+/* Show if bigger than... */
+@media (max-width: 320px)  {.hide-until.mobile-s    {display: none !important;}}
+@media (max-width: 375px)  {.hide-until.mobile-m    {display: none !important;}}
+@media (max-width: 425px)  {.hide-until.mobile-l    {display: none !important;}}
+@media (max-width: 768px)  {.hide-until.tablet      {display: none !important;}}
+@media (max-width: 1024px) {.hide-until.desktop     {display: none !important;}}
+@media (max-width: 1440px) {.hide-until.desktop-hd  {display: none !important;}}
+@media (max-width: 2560px) {.hide-until.desktop-uhd {display: none !important;}}
+
+/* Show if bigger than... */
+@media (min-width: 320px)  {.show-until.mobile-s    {display: none !important;}}
+@media (min-width: 375px)  {.show-until.mobile-m    {display: none !important;}}
+@media (min-width: 425px)  {.show-until.mobile-l    {display: none !important;}}
+@media (min-width: 768px)  {.show-until.tablet      {display: none !important;}}
+@media (min-width: 1024px) {.show-until.desktop     {display: none !important;}}
+@media (min-width: 1440px) {.show-until.desktop-hd  {display: none !important;}}
+@media (min-width: 2560px) {.show-until.desktop-uhd {display: none !important;}}
 
 /* Media Queries
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
