@@ -98,28 +98,6 @@
 	.offset-by-one-third.column, .offset-by-one-third.columns   { margin-left: 34.6666666667%; }
 	.offset-by-two-thirds.column, .offset-by-two-thirds.columns { margin-left: 69.3333333333%; }
 	.offset-by-one-half.column, .offset-by-one-half.columns     { margin-left: 52%; }
-
-	/* Locked */
-	.one.column.locked,
-	.one.columns.locked     { width: 4.66666666667% !important; }
-	.two.columns.locked     { width: 13.3333333333% !important; }
-	.three.columns.locked   { width: 22%            !important; }
-	.four.columns.locked    { width: 30.6666666667% !important; }
-	.five.columns.locked    { width: 39.3333333333% !important; }
-	.six.columns.locked     { width: 48%            !important; }
-	.seven.columns.locked   { width: 56.6666666667% !important; }
-	.eight.columns.locked   { width: 65.3333333333% !important; }
-	.nine.columns.locked    { width: 74.0%          !important; }
-	.ten.columns.locked     { width: 82.6666666667% !important; }
-	.eleven.columns.locked  { width: 91.3333333333% !important; }
-	.twelve.columns.locked  {
-		width: 100% !important;
-		margin-left: 0 !important;
-	}
-
-	.column.locked, .columns.locked { margin-left: 4% !important; }
-	.column.locked:first-child, .columns.locked:first-child { margin-left: 0 !important; }
-
 }
 
 
@@ -227,31 +205,6 @@ input[type="button"]:focus {
 	color: #333;
 	border-color: #888;
 	outline: 0;
-}
-
-.button.button-primary,
-button.button-primary,
-input[type="submit"].button-primary,
-input[type="reset"].button-primary,
-input[type="button"].button-primary {
-	color: #FFF;
-	background-color: #33C3F0;
-	border-color: #33C3F0;
-}
-
-.button.button-primary:hover,
-button.button-primary:hover,
-input[type="submit"].button-primary:hover,
-input[type="reset"].button-primary:hover,
-input[type="button"].button-primary:hover,
-.button.button-primary:focus,
-button.button-primary:focus,
-input[type="submit"].button-primary:focus,
-input[type="reset"].button-primary:focus,
-input[type="button"].button-primary:focus {
-	color: #FFF;
-	background-color: #1EAEDB;
-	border-color: #1EAEDB;
 }
 
 
@@ -620,6 +573,17 @@ desktop-uhd: 2560px
 .page {
 	min-height: 100vh;
 	padding-top: 88px;
+	position: relative;
+}
+
+footer, .footer {
+	display: block;
+	width: 100%;
+	padding: 16px;
+	position: absolute;
+	bottom: 0;
+	background-color: #222;
+	color: white;
 }
 
 /* Media Queries
