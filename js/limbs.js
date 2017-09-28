@@ -1,5 +1,5 @@
 window.limbs = new function() {
-    this.expand = function( id ) {
+    this.toggle = function( id ) {
         var
             el = document.getElementById(id),
             classes, classIndex;
