@@ -26,9 +26,72 @@
 	<link rel="icon" type="image/png" href="images/favicon.png">
 
 	<script type = "text/javascript" src = "js/limbs.js" ></script>
-
+  <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 
 	<style>
+
+    .header {
+      margin: auto auto;
+    }
+    .icon-button .feather {
+      margin: 6px;
+    }
+
+    .mark {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .mark .icon {
+      position: relative;
+      width: 96px;
+      height: 96px;
+      display: flex;
+      padding-top: 10px;
+      padding-right: 16px;
+    }
+
+    .mark .text {
+      display: flex;
+      font-weight: bolder;
+      padding-left: 16px;
+    }
+
+    .mark .icon svg {
+      position: absolute;
+      transform: scale( 4 );
+      transform-origin: 0% 0%;
+      stroke: #555;
+    }
+
+    .buttons {
+      display: table;
+      margin: 0 auto;
+    }
+
+    .buttons button { margin-left: 1em;}
+
+    .buttons .download {
+      color: white;
+      background-color: #2479DA;
+      border-style: none;
+    }
+
+    .buttons .github {
+      color: white;
+      background-color: #222;
+      border-style: none;
+    }
+
+    .buttons .github:hover {
+      background-color: #000;
+    }
+
+    .buttons .download:hover {
+      background-color: #0B65C5;
+    }
 	</style>
 </head>
 <body>
@@ -38,14 +101,16 @@
 	<nav class = "navbar">
 		<h2>Limbs</h2>
 		
-		<button class = "toggle u-pull-right" onclick = "limbs.toggle('nav-main');">M</button>
+		<button class = "toggle icon-button u-pull-right" onclick = "limbs.toggle('nav-main');">
+      <span data-feather = "menu"></span>
+    </button>
 
 		<ul id = "nav-main" class = "navbar-right">
 			<li><a href = "#">Home</a></li>
 			<li>
 				<a href = "#">About</a>
 
-				<div class = "dropdown">
+			  <div class = "dropdown">
 					<a href = "#">Our long history</a>
 					<a href = "#">Jobs</a>
 				</div>
@@ -62,7 +127,9 @@
 			<li>
 				<div class = "flex-input-group">
 					<input type = "text"></input>
-					<button>Search</button>
+					<button class = "icon-button" >
+            <span data-feather = "search"></span>
+          </button>
 				</div>
 			</li>
 		</ul>
@@ -70,12 +137,35 @@
 
 	<div class = "page">
 		<div class = "container">
-			<h1 class = "u-center-text" style = "font-size: 6em;">Limbs</h1>
-            <h5 class = "u-center-text" style = "color: #555;">A modern, minimal css boilerplate built off Skeleton</h5>
+        <div class = "header">
+        <div class = "mark">
+          <div class = "icon">
+            <svg  width = "24" height = "24" viewBox = "0 0 24 24" xmlns = "http://www.w3.org/2000/svg">
+              <circle cx = "6" cy = "5" r = "3" fill = "none" stroke-width = "2.25"></circle>
+              <circle cx = "18" cy = "5" r = "3" fill = "none" stroke-width = "2.25"></circle>
+              <circle cx = "18" cy = "19" r = "3" fill = "none" stroke-width = "2.25"></circle>
+              <path d = "m 6,9 0,10 8,0" style="fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"></path>
+              <path d = "m 18,15 0,-2" style="fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;"></path>
+            </svg>
+          </div>
+
+          <div class = "text">
+              <h1 style = "font-size: 6em;">Limbs</h1>
+          </div>
         </div>
-        
+
+        <h5 class = "u-center-text" style = "color: #555;">A modern, minimal css boilerplate built off Skeleton</h5>
+        <div class = "buttons">
+          <button class = "download">Download</button>
+          <button class = "github">Github</button>
+        </div>
+        </div>
+    </div>
+
         <footer>footer :D</footer>
-	</div>
+  </div>
+  
+  <script>feather.replace();</script>
 
 <!-- End Document
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->

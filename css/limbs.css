@@ -207,6 +207,17 @@ input[type="button"]:focus {
 	outline: 0;
 }
 
+.button.icon-button,
+button.icon-button,
+input[type="submit"].icon-button,
+input[type="reset"].icon-button,
+input[type="button"].icon-button {
+	padding: 0;
+	width: 38px;
+	min-width: 38px;
+	text-align: center;
+}
+
 
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -429,16 +440,29 @@ desktop-uhd: 2560px
 	z-index: 1000;
 }
 
-.navbar * {
+.navbar input,
+.navbar button,
+.navbar h1,
+.navbar h2,
+.navbar h3,
+.navbar h4,
+.navbar h5,
+.navbar h6,
+.navbar span,
+.navbar a,
+.navbar li {
 	display: block;
 	float: left;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	position: relative;
+	color: white;
 	margin-bottom: 0;
 	margin-right: 8px;
 	margin-left: 8px;
-	position: relative;
-	color: white;
+}
+
+.navbar span, .navbar a {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
 }
 
 .navbar a { text-decoration: none; }
