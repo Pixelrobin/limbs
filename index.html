@@ -19,7 +19,8 @@
 	<!-- CSS
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/limbs.css">
+  <link rel="stylesheet" href="css/limbs.css">
+  <link rel = "stylesheet" href = "extra/landing-page.css">
 
 	<!-- Favicon
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -28,106 +29,6 @@
 	<script type = "text/javascript" src = "js/limbs.js" ></script>
   <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
 
-	<style>
-
-    .header {
-      margin: auto auto;
-    }
-    .icon-button .feather {
-      margin: 6px;
-    }
-
-    .mark {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .mark .icon {
-      position: relative;
-      width: 96px;
-      height: 96px;
-      display: flex;
-      padding-top: 10px;
-      padding-right: 16px;
-      margin-bottom: 32px;
-    }
-
-    .mark .text {
-      display: none;
-      font-weight: bolder;
-      padding-left: 16px;
-    }
-
-    .mark .icon svg {
-      position: absolute;
-      transform: scale( 4 );
-      transform-origin: 0% 0%;
-      stroke: #555;
-    }
-
-    .buttons {
-      display: table;
-      margin: 0 auto;
-    }
-
-    .buttons button {
-      margin-left: 1em;
-      transition: background-color 0.15s, box-shadow 0.3s, transform 0.3s;
-    }
-
-    .buttons button:hover {
-      box-shadow: 0 4px 8px #ddd;
-      transform: translateY( -2px );
-    }
-
-    .buttons .download {
-      color: white;
-      background-color: #2479DA;
-      border-style: none;
-    }
-
-    .buttons .github {
-      color: white;
-      background-color: #222;
-      border-style: none;
-    }
-
-    .buttons .github:hover {
-      background-color: #000;
-    }
-
-    .buttons .download:hover {
-      background-color: #3283D4;
-    }
-
-    @media ( min-width: 480px ) {
-      .mark .text { display: flex; }
-      .mark .icon { margin: 0; }
-      .header { margin-top: 32px; }
-    }
-
-    .docs { margin-top: 48px; }
-    .docs-header {
-      display: block;
-      border-bottom: 1px solid #777;
-      padding-left: 3px;
-      font-weight: bold;
-    }
-
-    .example-grid .column, .example-grid .columns {
-      background-color: #ddd;
-      text-align: center;
-      border-radius: 4px;
-      padding: 4px 0;
-      font-family: monospace;
-    }
-
-    .example-grid .row {
-      margin-bottom: 8px;
-    }
-	</style>
 </head>
 <body>
 
@@ -143,15 +44,6 @@
 		<ul id = "nav-main" class = "navbar-right">
 			<li><a href = "#">Download</a></li>
 			<li><a href = "#">Github</a></li>
-
-			<li>
-				<div class = "flex-input-group">
-					<input type = "text"></input>
-					<button class = "icon-button" >
-            <span data-feather = "search"></span>
-          </button>
-				</div>
-			</li>
 		</ul>
 	</nav>
 
@@ -183,6 +75,48 @@
         </div>
 
         <div class = "docs">
+          <!-- LAYOUT -->
+          <h5 class = "docs-header">LAYOUT</h5>
+
+          <p>Limbs comes pre-packaged with a layout style, including a fixed responsive navbar. Almost all basic elements from Limbs can be placed inside the it.</p>
+          
+          <div class = "example-layout" style = "position: relative">
+            <nav class = "navbar" style = "position: relative; z-index: 999;">
+                <h2>h2</h2>
+                <h5>h5</h5>
+                <span>span</span>
+                
+                <button class = "toggle icon-button u-pull-right" onclick = "limbs.toggle('nav-demo');">
+                  <span data-feather = "menu"></span>
+                </button>
+            
+                <ul id = "nav-demo" class = "navbar-right">
+                  <li><a href = "#">Link</a></li>
+                  <li>
+                    <a href = "#">Dropdown</a>
+                    <div class = "dropdown">
+                      <a href = "#">Item 1</a>
+                      <a href = "#">Item 2</a>
+                    </div>
+                  </li>
+            
+                  <li>
+                    <div class = "flex-input-group">
+                      <input type = "text"></input>
+                      <button class = "icon-button" >
+                        <span data-feather = "search"></span>
+                      </button>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+
+              <div class = "page" style = "min-height: 100%; padding-top: 0;">
+                <h2 class = "u-center-text" style = "margin: 32px 0;">CONTENT GOES HERE</h2>
+                <footer>This is a footer.</footer>
+              </div>
+          </div>
+
           <!-- GRID -->
           <h5 class = "docs-header">GRID</h5>
 
@@ -234,33 +168,46 @@
               <div class="one column">One</div>
             </div>
           </div>
+        </div>
 
-          <pre><code>&lt;!-- columns should be the immediate child of a .row --&gt;
-&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;one column&quot;&gt;One&lt;/div&gt;
-  &lt;div class=&quot;eleven columns&quot;&gt;Eleven&lt;/div&gt;
-&lt;/div&gt;
+      <!-- TYPOGRAPHY -->
+      <h5 class = "docs-header">TYPOGRAPHY</h5>
 
-&lt;!-- just use a number and class 'column' or 'columns' --&gt;
-&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;two columns&quot;&gt;Two&lt;/div&gt;
-  &lt;div class=&quot;ten columns&quot;&gt;Ten&lt;/div&gt;
-&lt;/div&gt;
+      <p>Text is styled at default with <span style = "font-family: monospace;">font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</span> Nothing too fancy. Each header has a distinct line height and size.</p>
+      <div class = "row">
+        <div class = "six columns">
+          <p style = "text-align: justify;">Example paragraph lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam gravida metus at pretium ultricies. Vestibulum cursus porta sem, at posuere velit. Mauris accumsan sapien at mi scelerisque fermentum. Praesent velit diam, egestas sit amet ultricies ut, mattis id justo. </p>
+        </div>
 
-&lt;!-- there are a few shorthand columns widths as well --&gt;
-&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;one-third column&quot;&gt;1/3&lt;/div&gt;
-  &lt;div class=&quot;two-thirds column&quot;&gt;2/3&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;row&quot;&gt;
-  &lt;div class=&quot;one-half column&quot;&gt;1/2&lt;/div&gt;
-  &lt;div class=&quot;one-half column&quot;&gt;1/2&lt;/div&gt;
-&lt;/div&gt;
-        </code></pre>
+        <div class = "six columns">
+          <h1>Heading 1</h1>
+          <h2>Heading 2</h2>
+          <h3>Heading 3</h3>
+          <h4>Heading 4</h4>
+          <h5>Heading 5</h5>
+          <h6>Heading 6</h6>
+        </div>
+      </div>
+
+      <!-- BUTTONS -->
+      <h5 class = "docs-header">BUTTONS</h5>
+      <p>Limbs includes two types of buttons: a normal one and an icon variety. Buttons are 38px high and icon buttons are 38x38px. It is up to you to decide what to put in them. Also, margin and padding are up to you to implement based on your icon size. This page uses the feather icon pack.</p>
+      <div>
+        <a href = "#" class = "button">Anchor Button</a>
+        <button>Button Element</button>
+        <input type = "submit" value = "Submit Input">
+        <input type = "button" value = "Button Input">
+      </div>
+
+      <div>
+          <button class = "icon-button"><span data-feather = "feather"></span></button>
+          <a class = "button icon-button"><span data-feather = "anchor"></span></a>
+          <button class = "icon-button"><span data-feather = "cpu"></span></button>
+          <button class = "icon-button"><span data-feather = "zap"></span></button>
       </div>
     </div>
 
-        <footer>footer :D</footer>
+    <footer>footer :D</footer>
   </div>
   
   <script>feather.replace();</script>

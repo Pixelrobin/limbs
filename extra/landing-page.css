@@ -1,0 +1,88 @@
+.header { margin: auto auto; }
+
+.icon-button .feather { margin: 6px; }
+
+.mark {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.mark .icon {
+	position: relative;
+	width: 96px;
+	height: 96px;
+	display: flex;
+	padding-top: 10px;
+	padding-right: 16px;
+	margin-bottom: 32px;
+}
+
+.mark .text {
+	display: none;
+	font-weight: bolder;
+	padding-left: 16px;
+}
+
+.mark .icon svg {
+	position: absolute;
+	transform: scale( 4 );
+	transform-origin: 0% 0%;
+	stroke: #555;
+}
+
+.buttons {
+	display: table;
+	margin: 0 auto;
+}
+
+.buttons button {
+	margin-left: 1em;
+	transition: background-color 0.15s, box-shadow 0.3s, transform 0.3s;
+}
+
+.buttons button:hover {
+	box-shadow: 0 4px 8px #ddd;
+	transform: translateY( -2px );
+}
+
+.buttons .download {
+	color: white;
+	background-color: #2479DA;
+	border-style: none;
+}
+
+.buttons .github {
+	color: white;
+	background-color: #222;
+	border-style: none;
+}
+
+.buttons .github:hover { background-color: #000; }
+.buttons .download:hover { background-color: #3283D4; }
+
+@media ( min-width: 480px ) {
+	.mark .text { display: flex; }
+	.mark .icon { margin: 0; }
+	.header { margin-top: 32px; }
+}
+
+.docs { margin-top: 48px; }
+.docs-header {
+	display: block;
+	border-bottom: 1px solid #777;
+	padding-left: 3px;
+	font-weight: bold;
+	margin-top: 64px;
+}
+
+.example-grid .column, .example-grid .columns {
+	background-color: #ddd;
+	text-align: center;
+	border-radius: 4px;
+	padding: 4px 0;
+	font-family: monospace;
+}
+
+.example-grid .row { margin-bottom: 8px; }

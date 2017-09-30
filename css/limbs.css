@@ -190,6 +190,7 @@ input[type="button"] {
 	border: 1px solid #bbb;
 	cursor: pointer;
 	box-sizing: border-box;
+	vertical-align: top;
 }
 
 .button:hover,
@@ -215,7 +216,7 @@ input[type="button"].icon-button {
 	padding: 0;
 	width: 38px;
 	min-width: 38px;
-	text-align: center;
+	display: inline-block;
 }
 
 
@@ -438,6 +439,7 @@ desktop-uhd: 2560px
 	min-height: 64px;
 	max-height: 64px;
 	z-index: 1000;
+	padding: 0 8px;
 }
 
 .navbar input,
