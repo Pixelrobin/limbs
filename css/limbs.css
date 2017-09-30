@@ -36,7 +36,7 @@
 
 /* Grid
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-.container {
+.content {
 	position: relative;
 	width: 100%;
 	max-width: 960px;
@@ -53,7 +53,7 @@
 
 /* For devices larger than 400px */
 @media ( min-width: 400px ) {
-	.container {
+	.content {
 		width: 85%;
 		padding: 0;
 	}
@@ -61,7 +61,7 @@
 
 /* For devices larger than 550px */
 @media ( min-width: 550px ) {
-	.container { width: 80%; }
+	.content { width: 80%; }
 	.column, .columns { margin-left: 4%; }
 	.column:first-child, .columns:first-child { margin-left: 0; }
 
@@ -319,14 +319,14 @@ code {
 	margin: 0 .2rem;
 	font-size: 90%;
 	white-space: nowrap;
-	background: #F1F1F1;
-	border: 1px solid #E1E1E1;
+	background: #222;
+	color: white;
+	border: 1px solid #555;
 	border-radius: 4px;
 }
 
 pre > code {
 	font-family: monospace;
-	font-size: 1.15em;
 	display: block;
 	padding: 1rem 1.5rem;
 	white-space: pre;
@@ -385,7 +385,7 @@ hr {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 /* Self Clearing Goodness */
-.container:after,
+.content:after,
 .row:after,
 .u-cf {
 	content: "";
@@ -461,11 +461,15 @@ desktop-uhd: 2560px
 }
 
 .navbar span, .navbar a {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
+	margin: 0;
+	padding: 2rem 8px;
 }
 
-.navbar a { text-decoration: none; }
+.navbar a {
+	text-decoration: none;
+	transition: background-color 0.15s;
+}
+.navbar a:hover { background-color: #444; }
 
 /* Links */
 .navbar ul, .navbar li, .navbar div { margin: 0; padding: 0; }
@@ -590,13 +594,13 @@ desktop-uhd: 2560px
 }
 
 
-
 /* Layout
 -------------------------------------------------- */
 
 .page {
 	min-height: 100vh;
 	padding-top: 88px;
+	padding-bottom: 56px;
 	position: relative;
 }
 
