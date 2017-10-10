@@ -1,6 +1,33 @@
 .header { margin: auto auto; }
 
-.icon-button .feather { margin: 6px; }
+.flex-input-group {
+	display: flex;
+	width: 100%;
+}
+
+.flex-input-group .button,
+.flex-input-group button,
+.flex-input-group input[type="submit"],
+.flex-input-group input[type="reset"],
+.flex-input-group input[type="button"] {
+	display: flex;
+	flex-direction: column;
+}
+
+.flex-input-group input[type="email"],
+.flex-input-group input[type="number"],
+.flex-input-group input[type="search"],
+.flex-input-group input[type="text"],
+.flex-input-group input[type="tel"],
+.flex-input-group input[type="url"],
+.flex-input-group input[type="password"] {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	width: 100%;
+}
+
+.navbar-logo { font-family: 'Nunito', sans-serif; }
 
 .mark {
 	display: flex;
@@ -11,25 +38,41 @@
 
 .mark .icon {
 	position: relative;
-	width: 96px;
-	height: 96px;
+	width: 6rem;
+	height: 6rem;
 	display: flex;
-	padding-top: 10px;
-	padding-right: 16px;
 	margin-bottom: 32px;
+}
+
+.mark .icon svg {
+	width: 6rem;
+	height: 6rem;
+	stroke: #555;
 }
 
 .mark .text {
 	display: none;
-	font-weight: bolder;
 	padding-left: 16px;
 }
 
-.mark .icon svg {
-	position: absolute;
-	transform: scale( 4 );
-	transform-origin: 0% 0%;
-	stroke: #555;
+.mark .text h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: bold;
+}
+
+.desc { font-size: 0.9rem; }
+
+.desc-icon {
+	position: relative;
+	width: 4rem;
+	height: 4rem;
+	margin: 0 auto;
+}
+
+.desc-icon svg {
+	width: 4rem;
+	height: 4rem;
+	stroke: #444;
 }
 
 .buttons {
@@ -40,11 +83,17 @@
 .buttons button {
 	margin-left: 1em;
 	transition: background-color 0.15s, box-shadow 0.3s, transform 0.3s;
+	height: 3rem;
+	font-size: 1rem;
 }
 
-.buttons button:hover {
+.buttons button:hover, .buttons button:focus {
 	box-shadow: 0 4px 8px #ddd;
-	transform: translateY( -2px );
+	transform: translateY( -0.2rem );
+}
+
+.buttons button:focus {
+	border-style: solid;
 }
 
 .buttons .download {
@@ -59,6 +108,12 @@
 	border-style: none;
 }
 
+@media print {
+	.buttons button {
+		border-style: solid !important;
+	}
+}
+
 .buttons .github:hover { background-color: #000; }
 .buttons .download:hover { background-color: #3283D4; }
 
@@ -68,21 +123,53 @@
 	.header { margin-top: 32px; }
 }
 
+.feather-button {
+	position: relative;
+	width: 1.5rem;
+	height: 1.5rem;
+	margin: 0.15rem;
+}
+
+.feather-button svg {
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
 .docs { margin-top: 48px; }
 .docs-header {
 	display: block;
-	border-bottom: 1px solid #777;
+	border-bottom: 0.0625rem solid #777;
+	padding-bottom: 0.5rem;
 	padding-left: 3px;
 	font-weight: bold;
 	margin-top: 64px;
 }
 
-.example-grid .column, .example-grid .columns {
+.limbs-files { list-style-type: none; }
+
+.limbs-files svg {
+	vertical-align: middle;
+	margin-right: 8px;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.limbs-filename {
+	font-family: monospace;
+	font-weight: bold;
+}
+
+.example-grid .column, .example-grid .columns, .example-div {
 	background-color: #ddd;
 	text-align: center;
 	border-radius: 4px;
 	padding: 4px 0;
 	font-family: monospace;
+	margin-bottom: 8px;
 }
 
-.example-grid .row { margin-bottom: 8px; }
+.example-grid .row { margin-bottom: 0; }
+
+footer {
+	font-size: 1rem;
+}
