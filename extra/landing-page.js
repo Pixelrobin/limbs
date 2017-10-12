@@ -13,8 +13,6 @@ window.replaceScripts = function( type ) {
             code = document.createElement( "code" );
             text = scripts[ s ].textContent;
 
-            console.log( text );
-
             code.innerText = text;
             code.className = "language-markup";
 

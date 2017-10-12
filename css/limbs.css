@@ -623,6 +623,7 @@ hr {
 .navbar ul, .navbar li { margin: 0; padding: 0; }
 .navbar ul.expanded { display: block; }
 .navbar li, .navbar li * { float: none; }
+.navbar li { cursor: pointer; }
 
 .navbar ul {
 	clear: both;
@@ -641,8 +642,6 @@ hr {
 
 .navbar .dropdown {
 	float: initial;
-	position: absolute;
-	top: 4rem;
 	display: none;
 	padding: 0;
 	margin: 0;
@@ -653,12 +652,14 @@ hr {
 
 .navbar .navbar-right .dropdown { right: 0; }
 
-.navbar .dropdown * {
-	padding: 0.5rem 1rem;
+.navbar .dropdown a {
+	padding-left: 2rem;
 	margin: 0;
 	width: 100%;
 	clear: both;
 }
+
+.navbar ul li.expanded .dropdown { display: block; }
 
 @media ( min-width: 750px ) {
 	.navbar ul {
@@ -669,8 +670,10 @@ hr {
 
 	.navbar li, .navbar li * { float: left; }
 	.navbar .toggle { display: none; }
-	.navbar ul li:hover .dropdown, .navbar ul li .dropdown:hover {
-		display: block;
+	.navbar .dropdown a { padding: 1rem 1rem; }
+	.navbar .dropdown {
+		position: absolute;
+		top: 4rem;
 	}
 }
 
