@@ -104,7 +104,7 @@
 
 .buttons .github {
 	color: white;
-	background-color: #222;
+	background-color: #24292e;
 	border-style: none;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .buttons .github:hover { background-color: #000; }
-.buttons .download:hover { background-color: #3283D4; }
+.buttons .download:hover { background-color: #1165c4 }
 
 @media ( min-width: 480px ) {
 	.mark .text { display: flex; }
@@ -143,6 +143,14 @@
 	padding-left: 3px;
 	font-weight: bold;
 	margin-top: 64px;
+}
+
+/* https://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header */
+.docs-anchor {
+	display: block;
+	position: relative;
+	top: -2rem;
+	visibility: hidden;
 }
 
 .limbs-files { list-style-type: none; }

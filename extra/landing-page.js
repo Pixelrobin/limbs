@@ -11,7 +11,7 @@ window.replaceScripts = function( type ) {
             parent = scripts[ s ].parentNode;
             pre = document.createElement( "pre" );
             code = document.createElement( "code" );
-            text = scripts[ s ].textContent;
+            text = scripts[ s ].textContent.replace( /_script/g, "script" );
 
             code.innerText = text;
             code.className = "language-markup";

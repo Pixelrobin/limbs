@@ -1,9 +1,16 @@
+"use-strict";
+
 window.onload = function() {
 	console.log( "Page loaded!" );
+	
+	// Create a new High Contrast detector once page loads
 	detector = new HighContrastDetector();
 }
 
 window.limbs = new function() {
+	// "Toggle" a element
+	// This adds/removes the "expanded" css class
+	// argument could be a string id or a DOM element
 	this.toggle = function( idOrEl ) {
 		var classes, classIndex, el;
 
@@ -22,7 +29,7 @@ window.limbs = new function() {
 					classes.splice( classIndex, 1 );
 					el.className = classes.reduce( ( a, b ) => {
 						return a + " " + b;
-					}, "" );
+					} );
 				} else console.error(
 					"Class does not contain 'expanded'. This shouldn't happen."
 				);
@@ -32,10 +39,18 @@ window.limbs = new function() {
 		);
 	}
 
+	// Initiate a navbar by id
+	// This basically adds onclick events to things
 	this.initNavbar = function( id ) {
 		var
 			el = document.getElementById( id ),
 			toggles, dropdowns, d, parent;
+		
+		var getToggleCallback = function( el ) {
+			return function() {
+				limbs.toggle( el );
+			}
+		}
 
 		if ( el ) {
 			toggle    = el.getElementsByClassName( "toggle" )[ 0 ];
@@ -44,9 +59,9 @@ window.limbs = new function() {
 			
 			if ( menu ) {
 				if ( toggle ) {
-					toggle.addEventListener( "click", function( event ) {
-						limbs.toggle( menu ); 
-					});
+					toggle.addEventListener(
+						"click", getToggleCallback( menu )
+					);
 				} else console.error( "Menu found but no toggle." );
 
 				if ( dropdowns ) {
@@ -54,9 +69,9 @@ window.limbs = new function() {
 						parent = dropdowns[ d ].parentElement;
 						
 						if ( parent.tagName === "LI" ) {
-							parent.addEventListener( "click", function() {
-								limbs.toggle( parent );
-							})
+							parent.addEventListener(
+								"click", getToggleCallback( parent )
+							);
 						} else console.error( "Parent of dropdown is not a 'li' element", dropdowns[ d ] )
 					}
 				}
@@ -65,6 +80,7 @@ window.limbs = new function() {
 	}
 }
 
+// This detects high contrast modes on popular browsers
 window.HighContrastDetector = function() {
 	var htmlNode = document.getElementsByTagName( "html" )[ 0 ];
 

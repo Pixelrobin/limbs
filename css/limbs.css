@@ -123,9 +123,6 @@ body {
     -webkit-box-sizing: border-box;
 }
 
-/* MAKE SURE YOU OVVERRIDE THIS FOR EVERYTHING THAT IS FOCUSABLE! */
-*:focus { outline: 0; }
-
 /* High Contrast overrides
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 /* Firefox, etc */
@@ -206,12 +203,12 @@ h4, .h4 { font-size: 1.75rem; }
 h5, .h5 { font-size: 1.25rem; }
 h6, .h6 { font-size: 1rem; }
 
-.navbar h1, .h1 { padding: 0.25rem 0; }
-.navbar h2, .h2 { padding: 0.5rem 0; }
-.navbar h3, .h3 { padding: 0.75rem; }
-.navbar h4, .h4 { padding: 1rem 0; }
-.navbar h5, .h5 { padding: 1.25rem 0; }
-.navbar h6, .h6 { padding: 1.5rem 0; }
+.navbar h1, .navbar .h1 { padding: 0.25rem 0; }
+.navbar h2, .navbar .h2 { padding: 0.5rem 0; }
+.navbar h3, .navbar .h3 { padding: 0.75rem; }
+.navbar h4, .navbar .h4 { padding: 1rem 0; }
+.navbar h5, .navbar .h5 { padding: 1.25rem 0; }
+.navbar h6, .navbar .h6 { padding: 1.5rem 0; }
 
 /* Larger than phablet */
 @media (min-width: 550px) {
@@ -222,12 +219,12 @@ h6, .h6 { font-size: 1rem; }
 	h5, .h5 { font-size: 1.5rem; }
 	h6, .h6 { font-size: 1rem; }
 
-	.navbar h1, .h1 { padding: 0.25rem 0; }
-	.navbar h2, .h2 { padding: 0.5rem 0; }
-	.navbar h3, .h3 { padding: 0.75rem; }
-	.navbar h4, .h4 { padding: 1rem 0; }
-	.navbar h5, .h5 { padding: 1.25rem 0; }
-	.navbar h6, .h6 { padding: 1.5rem 0; }
+	.navbar h1, .navbar .h1 { padding: 0.25rem 0; }
+	.navbar h2, .navbar .h2 { padding: 0.5rem 0; }
+	.navbar h3, .navbar .h3 { padding: 0.75rem; }
+	.navbar h4, .navbar .h4 { padding: 1rem 0; }
+	.navbar h5, .navbar .h5 { padding: 1.25rem 0; }
+	.navbar h6, .navbar .h6 { padding: 1.5rem 0; }
 }
 
 p { margin-top: 0; }
@@ -235,8 +232,8 @@ p { margin-top: 0; }
 
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-a { color: #1EAEDB; }
-a:hover { color: #0FA0CE; }
+a { color: #2479DA; }
+a:hover { color: #1165c4; }
 a:focus { outline: 0.125rem solid #33C3F0; }
 
 
@@ -254,7 +251,7 @@ input[type="button"] {
 	text-align: center;
 	font-size: 0.75rem;
 	font-weight: 600;
-	line-height: 1.8rem;
+	line-height: 2rem;
 	letter-spacing: .05rem;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -283,7 +280,8 @@ button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
 input[type="button"]:focus {
-	border: 0.125rem solid #33C3F0;
+	border: 0.1rem solid #33C3F0;
+	outline: none;
 }
 
 .button.icon-button,
@@ -379,6 +377,7 @@ input[type="password"]:focus,
 textarea:focus,
 select:focus {
 	border: 0.125rem solid #33C3F0;
+	outline: none;
 }
 
 label, legend {
@@ -531,21 +530,24 @@ pre, blockquote, dl, figure, table, p, ul, ol, form { margin-bottom: 1rem; }
 .u-p-3 { padding: 1rem !important }
 .u-p-4 { padding: 2rem !important }
 
-/* Hide content until a screen size */
-@media ( max-width: 400px  ) { .u-hide-until.mobile      { display: none !important } };
-@media ( max-width: 550px  ) { .u-hide-until.phablet     { display: none !important } };
-@media ( max-width: 750px  ) { .u-hide-until.tablet      { display: none !important } };
-@media ( max-width: 1000px ) { .u-hide-until.desktop     { display: none !important } };
-@media ( max-width: 1200px ) { .u-hide-until.desktop-hd  { display: none !important } };
-@media ( max-width: 2560px ) { .u-hide-until.desktop-uhd { display: none !important } };
-
-/* Show content until screen size */
+/* TOO MANY MEDIA QUERIES SO IT DOESN'T WORK RIGHT */
+/* Show content until screen size 
 @media ( min-width: 400px  ) { .u-show-until.mobile      { display: none !important } };
 @media ( min-width: 550px  ) { .u-show-until.phablet     { display: none !important } };
 @media ( min-width: 750px  ) { .u-show-until.tablet      { display: none !important } };
 @media ( min-width: 1000px ) { .u-show-until.desktop     { display: none !important } };
 @media ( min-width: 1200px ) { .u-show-until.desktop-hd  { display: none !important } };
 @media ( min-width: 2560px ) { .u-show-until.desktop-uhd { display: none !important } };
+
+
+/* Hide content until a screen size 
+@media ( max-width: 400px  ) { .u-hide-until.mobile      { display: none !important } };
+@media ( max-width: 550px  ) { .u-hide-until.phablet     { display: none !important } };
+@media ( max-width: 750px  ) { .u-hide-until.tablet      { display: none !important } };
+@media ( max-width: 1000px ) { .u-hide-until.desktop     { display: none !important } };
+@media ( max-width: 1200px ) { .u-hide-until.desktop-hd  { display: none !important } };
+@media ( max-width: 2560px ) { .u-hide-until.desktop-uhd { display: none !important } };
+*/
 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -607,17 +609,14 @@ hr {
 }
 
 /*  Misc navbar things */
-.navbar span, .navbar a {
+.navbar > span, .navbar a {
 	margin: 0;
 	padding: 1.5rem 0.5rem;
 	line-height: 1;
 }
 
-.navbar a {
-	text-decoration: none;
-	transition: background-color 0.15s;
-}
-.navbar a:hover, .navbar a:focus { background-color: #444; }
+.navbar a { text-decoration: none; }
+.navbar a:hover, .navbar a:focus { background-color: #444; outline: none; }
 
 /* Links */
 .navbar ul, .navbar li { margin: 0; padding: 0; }
