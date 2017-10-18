@@ -38,7 +38,7 @@
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .content {
 	position: relative;
-	width: 100%;
+	width: 95%;
 	max-width: 60rem;
 	margin: 0 auto;
 	padding: 0 20;
@@ -582,6 +582,7 @@ hr {
 	min-height: 4rem;
 	max-height: 4rem;
 	z-index: 1000;
+	max-height: 100vh;
 }
 
 .navbar input,
@@ -609,7 +610,12 @@ hr {
 }
 
 /*  Misc navbar things */
-.navbar > span, .navbar a {
+.navbar > span,
+.navbar li > span,
+.navbar > a,
+.navbar li > a,
+.navbar .dropdown > span,
+.navbar .dropdown > a {
 	margin: 0;
 	padding: 1.5rem 0.5rem;
 	line-height: 1;
@@ -620,7 +626,6 @@ hr {
 
 /* Links */
 .navbar ul, .navbar li { margin: 0; padding: 0; }
-.navbar ul.expanded { display: block; }
 .navbar li, .navbar li * { float: none; }
 .navbar li { cursor: pointer; }
 
@@ -629,6 +634,13 @@ hr {
 	background-color: #222;
 	width: 100%;
 	display: none;
+}
+
+.navbar ul.expanded {
+	display: block;
+	max-height: 100vh;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 .navbar ul::before, .navbar ul::after {
@@ -657,6 +669,10 @@ hr {
 	width: 100%;
 	clear: both;
 }
+
+/* This is used in the js file for when the mobile dropdown happens to be
+bigger than the screen */
+.navbar ul li.expanded.fullscreen { padding-bottom: 4rem; }
 
 .navbar ul li.expanded .dropdown { display: block; }
 

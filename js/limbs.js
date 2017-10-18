@@ -9,34 +9,35 @@ window.onload = function() {
 
 window.limbs = new function() {
 	// "Toggle" a element
-	// This adds/removes the "expanded" css class
-	// argument could be a string id or a DOM element
-	this.toggle = function( idOrEl ) {
+	// This adds/removes a css class, "expanded" by default.
+	this.toggle = function(
+		idOrEl, // The string id or a DOM element
+		name,   // The css classname to use default is "expanded"
+		include // Whether to remove it or take it away (overwrite the check)
+	) {
 		var classes, classIndex, el;
 
 		if ( typeof idOrEl === "string" )
 			el = document.getElementById( idOrEl );
-		else el = idOrEl; 
+		else el = idOrEl;
+
+		name = name || "expanded";
 
 		if ( el ) {
-			if ( el.className.indexOf( "expanded" ) === -1 ) {
-				el.className += " expanded";
-			} else {
+			if ( el.className.indexOf( name ) === -1 || include === true )
+				el.className += " " + name;
+			else {
 				classes = el.className.split( " " ),
-				classIndex = classes.indexOf( "expanded" );
+				classIndex = classes.indexOf( name );
 
 				if ( classIndex !== -1 ) {
 					classes.splice( classIndex, 1 );
 					el.className = classes.reduce( ( a, b ) => {
 						return a + " " + b;
-					} );
-				} else console.error(
-					"Class does not contain 'expanded'. This shouldn't happen."
-				);
+					});
+				}
 			}
-		} else console.error(
-			"Error expanding. Element with id '" + id + "' does not exist."
-		);
+		} else console.error( "Element with id '" + id + "' does not exist." );
 	}
 
 	// Initiate a navbar by id
@@ -44,7 +45,7 @@ window.limbs = new function() {
 	this.initNavbar = function( id ) {
 		var
 			el = document.getElementById( id ),
-			toggles, dropdowns, d, parent;
+			toggles, dropdowns, d, parent, style;
 		
 		var getToggleCallback = function( el ) {
 			return function() {
@@ -52,10 +53,15 @@ window.limbs = new function() {
 			}
 		}
 
+		console.log( el );
+
 		if ( el ) {
 			toggle    = el.getElementsByClassName( "toggle" )[ 0 ];
 			menu      = el.getElementsByTagName( "ul" )[ 0 ];
 			dropdowns = el.getElementsByClassName( "dropdown" );
+			style     = window.getComputedStyle( el );
+
+			console.log( style.getPropertyValue( "min-height" ) );
 			
 			if ( menu ) {
 				if ( toggle ) {
@@ -70,7 +76,12 @@ window.limbs = new function() {
 						
 						if ( parent.tagName === "LI" ) {
 							parent.addEventListener(
-								"click", getToggleCallback( parent )
+								"click", function( parent, menu, dropdown ) {
+									return function() {
+										limbs.toggle( parent );
+										console.log( menu.scrollHeight, menu.offsetHeight );
+									}
+								}( parent, menu, dropdowns[ d ] )
 							);
 						} else console.error( "Parent of dropdown is not a 'li' element", dropdowns[ d ] )
 					}
